@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, redirect
 from .models import Plant, ToDo
 from .forms import PlantForm 
 
@@ -20,3 +21,13 @@ def add_plant(request):
     else: 
         form = PlantForm() 
     return render(request, 'plants/add_plant.html', {'form': form})
+
+def edit_plant(request, plant_id):
+    plant = get_object_or_404(Plant, pk=plant_id) 
+    if request.method == 'POST':
+        form = PlantForm(request.POST, instance=plant)  
+        form.save()  
+        return redirect('plant_list')
+    else:
+        form = PlantForm(instance=plant)
+    return render(request, 'plants/edit_plant.html', {'form': form, 'plant': plant})
