@@ -18,5 +18,26 @@
         <li>{{ todo.plant }} - {{ todo.task_type }}</li>
         {% endfor %}
     </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Plant Name</th>
+                <th>Species</th> 
+                <th>Watering Interval</th>  <th>Last Watered</th>  </tr>
+        </thead>
+
+        <tbody>
+            {% for plant in plants %}
+                <tr>
+                    <td>{{ plant.name }}</td>
+                    <td>{{ plant.species }}</td>
+                    <td>{{ plant.watering_interval }} days</td>
+                    <td>{{ plant.last_watered }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
 </body>
 </html>

@@ -5,7 +5,7 @@ class Plant(models.Model):
     name = models.CharField(max_length=100)
     species = models.CharField(max_length=100)
     watering_interval = models.IntegerField(help_text="Days between watering")
-    last_watered = models.DateField(auto_now_add=True)  # Auto-add on creation
+    last_watered = models.DateField(auto_now_add=True) 
     fertilization_interval = models.IntegerField(help_text="Days between fertilization")
     last_fertilized = models.DateField(auto_now_add=True)
 
