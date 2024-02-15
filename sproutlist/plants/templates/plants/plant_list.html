@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SproutList</title>
+    <link rel="stylesheet" href="your_styles.css"> 
+</head>
+<body>
+    <h1>My Plants</h1>
+    <ul>
+        {% for plant in plants %}
+            <li>{{ plant.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Watering Tasks</h2>
+    <ul>
+        {% for todo in todos %}
+        <li>{{ todo.plant }} - {{ todo.task_type }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
