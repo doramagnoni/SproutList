@@ -40,3 +40,12 @@ def delete_plant(request, plant_id):
 def confirm_delete(request, plant_id):
     plant = get_object_or_404(Plant, pk=plant_id)
     return render(request, 'plants/confirm_delete.html', {'plant': plant})
+
+def add_plant(request):
+    if request.method == 'POST':
+        form = PlantForm(request.POST, request.FILES) 
+        if form.is_valid():
+            new_plant = form.save()  
+            # Placeholder! 
+            return redirect('plant_list')  
+   
