@@ -48,4 +48,7 @@ def add_plant(request):
             new_plant = form.save()  
             # Placeholder! 
             return redirect('plant_list')  
+        
+
+
    
